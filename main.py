@@ -98,10 +98,11 @@ def search_pick(me,pl,board):
     state_next = copy.deepcopy(state)
     assert pick(state_next[me],state_next["board"],b)
     score = search_state_rec(me,me,state_next)
+    print "me=%s, b=%s, score=%s"%(me, b, score)
     if score > score_max:
       score_max = score
       to_pick = b
-    if score == score_max and random.random() > 0.3:
+    if score == score_max and random.random() > 0.7:
       to_pick = b
   assert pick(state[me],board,to_pick)
     
